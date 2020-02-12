@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface DistilleryRepository extends JpaRepository<Distillery, Long>, DistilleryRepositoryCustom {
-    List<Distillery> findByRegionEquals(String region);
+    List<Distillery> findByRegionEqualsIgnoreCase(String region);
 
-    List<Distillery> findByNameEquals(String name);
+    List<Distillery> findByNameEqualsIgnoreCase(String name);
 }

@@ -35,25 +35,25 @@ public class WhiskyTrackerApplicationTests {
 
 	@Test
 	public void canFindDistilleryByRegion(){
-		List<Distillery> foundDistilleries = distilleryRepository.findByRegionEquals("Speyside");
+		List<Distillery> foundDistilleries = distilleryRepository.findByRegionEqualsIgnoreCase("Speyside");
 		assertEquals(2, foundDistilleries.size());
 	}
 
 	@Test
 	public void canFindWhiskyFromDistilleryAndYear(){
-		List<Whisky> foundWhiskies = whiskyRepository.findByYearEqualsAndDistilleryNameEquals(1995, "Macallan");
+		List<Whisky> foundWhiskies = whiskyRepository.findByYearEqualsAndDistilleryNameEqualsIgnoreCase(1995, "Macallan");
 		assertEquals(1, foundWhiskies.size());
 	}
 
 	@Test
 	public void canFindDistilleryByName(){
-		List<Distillery> foundDistilleries = distilleryRepository.findByNameEquals("Balvenie");
+		List<Distillery> foundDistilleries = distilleryRepository.findByNameEqualsIgnoreCase("Balvenie");
 		assertEquals(1, foundDistilleries.size());
 	}
 
 	@Test
-	public void canfindWhiskyFromRegion(){
-		List<Whisky> foundWhiskey = whiskyRepository.findByDistilleryRegionEquals("Speyside");
+	public void canFindWhiskyFromRegion(){
+		List<Whisky> foundWhiskey = whiskyRepository.findByDistilleryRegionEqualsIgnoreCase("Speyside");
 		assertEquals(1, foundWhiskey.size());
 	}
 
