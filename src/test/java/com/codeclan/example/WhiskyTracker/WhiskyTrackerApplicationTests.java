@@ -46,6 +46,12 @@ public class WhiskyTrackerApplicationTests {
 	}
 
 	@Test
+	public void canFindWhiskyFromDistilleryIdAndYear(){
+		List<Whisky> foundWhiskies = whiskyRepository.findByYearEqualsAndDistilleryIdEquals(1995, 3L);
+		assertEquals(1, foundWhiskies.size());
+	}
+
+	@Test
 	public void canFindDistilleryByName(){
 		List<Distillery> foundDistilleries = distilleryRepository.findByNameEqualsIgnoreCase("Balvenie");
 		assertEquals(1, foundDistilleries.size());
@@ -61,6 +67,12 @@ public class WhiskyTrackerApplicationTests {
 	public void canFindWhiskeyage12(){
 		List<Whisky> foundWhiskey = whiskyRepository.findByAgeEquals(12);
 		assertEquals(2, foundWhiskey.size());
+	}
+
+	@Test
+	public void candFindDistilliersWithWhiskeyAre12(){
+	List<Distillery> foundDistilleries = distilleryRepository.findDistilleryByWhiskiesAge(12);
+	assertEquals(2, foundDistilleries.size());
 	}
 
 
